@@ -14,7 +14,6 @@ class AcodePlugin {
 if (window.acode) {
   const acodePlugin = new AcodePlugin();
   acode.setPluginInit(plugin.id, async (baseUrl, $page, { cacheFileUrl, cacheFile }) => {
-    acode.toast("My Extension Loaded 🚀");
     if (!baseUrl.endsWith('/')) {
       baseUrl += '/';
     }
@@ -22,7 +21,6 @@ if (window.acode) {
     await acodePlugin.init($page, cacheFile, cacheFileUrl);
   });
   acode.setPluginUnmount(plugin.id, () => {
-    acode.toast("My Extension UnLoaded");
     acodePlugin.destroy();
   });
 }
